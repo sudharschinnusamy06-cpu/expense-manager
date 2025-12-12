@@ -11,24 +11,14 @@ import path from "path";
 
 dotenv.config({ path: "./config/config.env" });
 const app = express();
-app.use(
-  cors({
-    origin: "http://localhost:3000",  // your React dev URL
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-    credentials: true,
-  })
-);
-
-// for preflight
-app.options("*", cors());
 
 const port = process.env.PORT  || 5000;
 
 connectDB();
 
 const allowedOrigins = [
-  "https://main.d1sj7cd70hlter.amplifyapp.com",
-  "https://expense-tracker-app-three-beryl.vercel.app",
+  "https://sudhars-expense-app-2025.netlify.app",
+  "http://localhost:3000",
   // add more origins as needed
 ];
 
@@ -38,9 +28,10 @@ app.use(
   cors({
     origin: allowedOrigins,
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   })
 );
+
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("dev"));
@@ -58,3 +49,5 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
+
+app.options("*", cors({ origin: allowedOrigins, credentials: true }));
