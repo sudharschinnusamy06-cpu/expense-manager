@@ -1,0 +1,132 @@
+/* page background to reduce plain white feeling */
+.budget-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 3rem;
+  background: radial-gradient(circle at top left, #ecfdf5 0, #f9fafb 45%, #f3f4f6 100%);
+}
+
+/* central shell card, matching Analytics cards */
+.budget-shell {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 2.25rem 2.5rem;
+  border-radius: 1.25rem;
+  background-color: #ffffff;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.budget-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* form block */
+.budget-form {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-row-inline {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.budget-form label {
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.budget-form input,
+.budget-form select {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  outline: none;
+}
+
+.budget-form input:focus,
+.budget-form select:focus {
+  border-color: #047857;
+  box-shadow: 0 0 0 1px #04785733;
+}
+
+/* button */
+.budget-btn {
+  margin-top: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  border: none;
+  background-color: #047857;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  justify-self: flex-start;
+}
+
+.budget-btn:hover {
+  background-color: #065f46;
+}
+
+/* result card inside same shell */
+.budget-result {
+  margin-top: 2rem;
+  padding: 1.5rem 1.75rem 1.75rem;
+  border-radius: 1rem;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.budget-result h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.budget-result table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+.budget-result th,
+.budget-result td {
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.budget-result th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+}
+
+.budget-hint {
+  margin-top: 0.75rem;
+  color: #4b5563;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .budget-shell {
+    padding: 1.5rem 1.25rem 2rem;
+  }
+
+  .form-row-inline {
+    grid-template-columns: 1fr;
+  }
+}

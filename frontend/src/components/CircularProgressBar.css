@@ -1,0 +1,56 @@
+/* outer wrapper to center inside black card column */
+.circular-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+/* base circle box */
+.circular-progressbar {
+  position: relative;
+  width: 90px;
+  height: 90px;
+}
+
+/* grey background circle */
+.circular-progressbar .bg {
+  stroke: #d3d3d3;
+}
+
+/* main circle */
+.circular-progressbar .circle {
+  stroke: var(--color);
+  fill: transparent;
+  stroke-width: 7;
+  stroke-linecap: round;
+  transform-origin: 50% 50%;
+  transform: rotate(-90deg);
+  transition: stroke-dashoffset 2s linear;
+}
+
+/* animate progress when class "animating" is added */
+.circular-progressbar .circle.animating {
+  animation: progressAnimation 3s linear forwards;
+}
+
+/* percent text in center */
+.circular-progressbar .percentage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* animation keyframes */
+@keyframes progressAnimation {
+  from {
+    stroke-dashoffset: var(--circumference);
+  }
+  to {
+    stroke-dashoffset: var(--progress);
+  }
+}

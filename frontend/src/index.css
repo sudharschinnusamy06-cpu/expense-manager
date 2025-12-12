@@ -1,0 +1,31 @@
+:root {
+  --primary: #047857;       /* main green */
+  --primary-dark: #065f46;  /* hover green */
+  --bg: #ffffff;            /* page background */
+  --surface: #f9fafb;       /* cards */
+  --border: #e5e7eb;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-main);
+}
+
+/* global button style */
+.btn,
+.btn-primary,
+.addNew,
+.mobileBtn {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+.btn:hover,
+.btn-primary:hover,
+.addNew:hover,
+.mobileBtn:hover {
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+}

@@ -1,0 +1,204 @@
+.lp-root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #111827;
+}
+
+.lp-hero {
+  display: flex;
+  gap: 4rem;
+  padding: 4rem 6rem 3rem;
+  align-items: center;
+}
+
+.lp-hero-left {
+  flex: 1;
+}
+
+.lp-title {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.lp-subtitle {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #4b5563;
+  max-width: 30rem;
+}
+
+.lp-primary-btn,
+.lp-secondary-btn {
+  margin-top: 2rem;
+  padding: 0.85rem 2.5rem;
+  background-color: #047857;
+  border-radius: 999px;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lp-primary-btn:hover,
+.lp-secondary-btn:hover {
+  background-color: #065f46;
+}
+
+.lp-hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.lp-monitor {
+  width: 420px;
+  height: 260px;
+  border-radius: 1.5rem;
+  background: #f3f4f6;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+  padding: 1.25rem;
+}
+
+.lp-monitor-header {
+  height: 16px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #e5e7eb, #d1fae5);
+  margin-bottom: 1rem;
+}
+
+.lp-monitor-body {
+  display: flex;
+  gap: 1rem;
+  height: calc(100% - 1.5rem);
+}
+
+.lp-pie {
+  flex: 1;
+  border-radius: 50%;
+  background: conic-gradient(#10b981, #6ee7b7, #22c55e, #059669);
+}
+
+.lp-bars {
+  flex: 1;
+  border-radius: 0.75rem;
+  background-image: linear-gradient(
+      to top,
+      #bbf7d0 15%,
+      transparent 15%,
+      transparent 30%,
+      #86efac 30%,
+      #86efac 45%,
+      transparent 45%,
+      transparent 60%,
+      #4ade80 60%,
+      #4ade80 75%,
+      transparent 75%,
+      transparent 90%,
+      #22c55e 90%,
+      #22c55e 100%
+  );
+  background-size: 40px 100%;
+}
+
+/* Steps */
+.lp-steps {
+  padding: 3rem 6rem;
+  text-align: center;
+}
+
+.lp-section-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.lp-section-sub {
+  margin-top: 0.5rem;
+  color: #6b7280;
+}
+
+.lp-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.lp-step-card {
+  padding: 1.5rem 1.25rem;
+}
+
+.lp-step-circle {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1rem;
+  border-radius: 999px;
+  border: 2px solid #047857;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #047857;
+}
+
+/* Features */
+.lp-features {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  padding: 3rem 6rem;
+  align-items: flex-start;
+}
+
+.lp-features-right {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.lp-feature-card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background-color: #f9fafb;
+}
+
+.lp-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 0.75rem;
+  background-color: #047857;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+/* CTA section */
+.lp-cta {
+  background-color: #047857;
+  color: #ffffff;
+  text-align: center;
+  padding: 3rem 2rem 3.5rem;
+}
+
+.lp-cta p {
+  margin-top: 0.75rem;
+  color: #d1fae5;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .lp-hero,
+  .lp-features {
+    padding: 2.5rem 1.5rem;
+    flex-direction: column;
+  }
+  .lp-steps,
+  .lp-cta {
+    padding: 2.5rem 1.5rem;
+  }
+  .lp-steps-grid,
+  .lp-features-right {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,97 @@
+/* Full-page shell inside sidebar content */
+.limit-shell {
+  min-height: 100%;
+  padding: 1.5rem 1.75rem;
+  background: linear-gradient(135deg, #e8f5e9 0%, #f5f7fa 60%, #ffffff 100%);
+}
+
+/* Main card */
+.limit-card {
+  max-width: 960px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(15, 118, 110, 0.12);
+  padding: 1.75rem 1.75rem 1.5rem;
+  border: 1px solid rgba(16, 185, 129, 0.15);
+}
+
+/* Header */
+.limit-header h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.4rem;
+  color: #065f46;
+  font-weight: 600;
+}
+
+.limit-header p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+/* Table */
+.limit-table-wrapper {
+  margin-top: 1.25rem;
+  overflow-x: auto;
+}
+
+.limit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.limit-table thead {
+  background: #ecfdf5;
+}
+
+.limit-table th,
+.limit-table td {
+  padding: 0.7rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.limit-table th {
+  font-weight: 600;
+  color: #065f46;
+  font-size: 0.9rem;
+}
+
+.limit-table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.limit-table tbody tr:hover {
+  background-color: #ecfdf5;
+}
+
+/* Footer note */
+.limit-footer-note {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed #d1d5db;
+}
+
+.limit-footer-note p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .limit-shell {
+    padding: 1rem;
+  }
+
+  .limit-card {
+    padding: 1.25rem 1rem 1.25rem;
+  }
+
+  .limit-table th,
+  .limit-table td {
+    padding: 0.6rem 0.5rem;
+  }
+}

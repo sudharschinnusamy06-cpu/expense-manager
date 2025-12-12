@@ -1,0 +1,279 @@
+/* Fit dashboard inside sidebar layout */
+.sl-main {
+  overflow-x: hidden;
+}
+
+.sl-content > .container {
+  max-width: 1100px;
+  padding-bottom: 2rem;
+}
+
+/* Main filter row container */
+.filterRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: var(--surface);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+/* Table styling */
+.data-table {
+  border-collapse: collapse;
+}
+
+.data-table thead th {
+  background-color: #f5f5f5;
+}
+
+/* Icons row */
+.icons-handle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+/* Custom date range row */
+.date {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Reset button container */
+.containerBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 100%;
+  margin-left: 20px;
+}
+
+/* Add New button (desktop) */
+.mobileBtn {
+  display: none !important;
+}
+
+/* Table / chart toggle box */
+.iconBtnBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+/* Active / inactive icons */
+.iconActive {
+  background-color: var(--primary);
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 4px;
+}
+
+.iconDeactive {
+  background-color: transparent;
+  color: var(--text-muted);
+  border-radius: 6px;
+  padding: 4px;
+}
+
+/* Dashboard header + add button */
+.dash-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.dash-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.dash-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* Add Expense button (top-right) */
+.dash-add-btn {
+  padding: 0.55rem 1.5rem;
+  border-radius: 999px;
+  border: none;
+  background-color: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dash-add-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Summary cards */
+.dash-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.dash-card {
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.dash-card-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.dash-card-value {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+
+
+
+/* Expense list */
+.dash-expenses-title {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.dash-expense-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.dash-expense-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1rem;
+  border-radius: 0.75rem;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.dash-expense-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.dash-expense-title {
+  font-weight: 600;
+}
+
+.dash-expense-meta {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  gap: 0.75rem;
+}
+
+.dash-expense-category {
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background-color: #ecfdf3;
+  color: var(--primary);
+  font-size: 0.75rem;
+}
+
+.dash-expense-date {
+  font-size: 0.8rem;
+}
+
+.dash-expense-amount {
+  font-weight: 700;
+}
+
+.dash-expense-amount.negative {
+  color: #b91c1c;
+}
+
+.dash-expense-amount.positive {
+  color: #047857;
+}
+
+/* Mobile styles */
+@media only screen and (max-width: 600px) {
+  .filterRow {
+    padding: 10px !important;
+    margin-top: 0px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .addNew {
+    display: none !important;
+  }
+
+  .mobileBtn {
+    display: inline-block !important;
+  }
+
+  .iconBtnBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0px;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .date .form-group {
+    width: 45%;
+  }
+
+  .containerBtn {
+    margin-left: 0px !important;
+  }
+
+  .dash-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .dash-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
+/* Ensure table text is visible on light background */
+.data-table tbody td,
+.data-table tbody th {
+  color: var(--text-main);
+}
