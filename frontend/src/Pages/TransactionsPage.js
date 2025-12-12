@@ -39,18 +39,7 @@ const TransactionsPage = () => {
   const handleClose = () => setShowAddTx(false);
   const handleShow = () => setShowAddTx(true);
 
-  useEffect(() => {
-    const userString = localStorage.getItem("user");
-    if (!userString) return;
 
-    try {
-      const u = JSON.parse(userString);
-      setUser(u);
-      fetchTransactions(u._id);
-    } catch {
-      localStorage.removeItem("user");
-    }
-  }, []);
 
   const fetchTransactions = async (userId) => {
     try {
@@ -67,6 +56,21 @@ const TransactionsPage = () => {
       setLoading(false);
     }
   };
+
+    useEffect(() => {
+    const userString = localStorage.getItem("user");
+    if (!userString) return;
+
+    try {
+      const u = JSON.parse(userString);
+      setUser(u);
+      fetchTransactions(u._id);
+    } catch {
+      localStorage.removeItem("user");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();

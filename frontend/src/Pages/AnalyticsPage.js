@@ -33,18 +33,7 @@ const AnalyticsPage = () => {
     theme: "dark",
   };
 
-  useEffect(() => {
-    const userString = localStorage.getItem("user");
-    if (!userString) return;
-
-    try {
-      const u = JSON.parse(userString);
-      fetchTransactions(u._id);
-    } catch {
-      localStorage.removeItem("user");
-    }
-  }, []);
-
+  
   const fetchTransactions = async (userId) => {
     try {
       setLoading(true);
@@ -60,6 +49,20 @@ const AnalyticsPage = () => {
       setLoading(false);
     }
   };
+
+    useEffect(() => {
+    const userString = localStorage.getItem("user");
+    if (!userString) return;
+
+    try {
+      const u = JSON.parse(userString);
+      fetchTransactions(u._id);
+    } catch {
+      localStorage.removeItem("user");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
 
   const totalSpent = transactions
     .filter((t) => t.transactionType === "expense")
