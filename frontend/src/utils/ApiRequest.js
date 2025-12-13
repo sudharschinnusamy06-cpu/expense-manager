@@ -1,5 +1,5 @@
 // const host = "https://expense-tracker-app-knl1.onrender.com";
-export const host = "http://localhost:5000";
+export const host = "https://expense-manager-gqtt.onrender.com";
 export const setAvatarAPI = `${host}/api/auth/setAvatar`;
 export const registerAPI = `${host}/api/auth/register`;
 export const loginAPI = `${host}/api/auth/login`;
