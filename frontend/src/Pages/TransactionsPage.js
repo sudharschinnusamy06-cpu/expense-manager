@@ -5,6 +5,7 @@ import { getTransactions, addTransaction } from "../utils/ApiRequest";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { Button, Modal, Form } from "react-bootstrap";
+import "react-toastify/dist/ReactToastify.css";
 import "./Transactions.css";
 
 const TransactionsPage = () => {
@@ -12,7 +13,6 @@ const TransactionsPage = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [type, setType] = useState("all"); // all / credit / expense
-
   const [showAddTx, setShowAddTx] = useState(false);
 
   const [values, setValues] = useState({
@@ -39,8 +39,6 @@ const TransactionsPage = () => {
   const handleClose = () => setShowAddTx(false);
   const handleShow = () => setShowAddTx(true);
 
-
-
   const fetchTransactions = async (userId) => {
     try {
       setLoading(true);
@@ -57,7 +55,7 @@ const TransactionsPage = () => {
     }
   };
 
-    useEffect(() => {
+  useEffect(() => {
     const userString = localStorage.getItem("user");
     if (!userString) return;
 
@@ -71,7 +69,6 @@ const TransactionsPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -80,7 +77,14 @@ const TransactionsPage = () => {
     const { title, amount, description, category, date, transactionType } =
       values;
 
-    if (!title || !amount || !description || !category || !date || !transactionType) {
+    if (
+      !title ||
+      !amount ||
+      !description ||
+      !category ||
+      !date ||
+      !transactionType
+    ) {
       toast.error("Please enter all the fields", toastOptions);
       return;
     }
@@ -99,7 +103,19 @@ const TransactionsPage = () => {
       });
 
       if (data.success === true) {
-        toast.success(data.message, toastOptions);
+        // base success
+        toast.success(data.message || "Expense added successfully", toastOptions);
+
+        // 80% warning
+        if (data.warningAlert && data.warningAlertMessage) {
+          toast.info(data.warningAlertMessage, toastOptions);
+        }
+
+        // 100%+ hard limit
+        if (data.budgetAlert && data.budgetAlertMessage) {
+          toast.warning(data.budgetAlertMessage, toastOptions);
+        }
+
         handleClose();
         setValues({
           title: "",
@@ -111,7 +127,7 @@ const TransactionsPage = () => {
         });
         fetchTransactions(user._id); // refresh table
       } else {
-        toast.error(data.message, toastOptions);
+        toast.error(data.message || "Failed to add expense", toastOptions);
       }
     } catch (err) {
       toast.error("Something went wrong. Please try again.", toastOptions);
@@ -154,13 +170,9 @@ const TransactionsPage = () => {
       </div>
 
       {/* TABLE */}
-      {loading ? (
-        <p>Loading…</p>
-      ) : (
-        <TableData data={filtered} user={user} />
-      )}
+      {loading ? <p>Loading…</p> : <TableData data={filtered} user={user} />}
 
-      {/* ADD EXPENSE MODAL (same style as Home) */}
+      {/* ADD EXPENSE MODAL */}
       <Modal show={showAddTx} onHide={handleClose} centered>
         <Modal.Header closeButton>
           <Modal.Title>Add Expense</Modal.Title>
@@ -196,28 +208,52 @@ const TransactionsPage = () => {
                 value={values.category}
                 onChange={handleChange}
               >
-               <option value="">Select category</option>
-               <option value="Groceries & Vegetables">Groceries & Vegetables</option>
-               <option value="Milk & Dairy">Milk & Dairy</option>
-               <option value="House Rent / Home EMI">House Rent / Home EMI</option>
-               <option value="Maintenance & Society Charges">Maintenance & Society Charges</option>
-               <option value="Electricity & Water">Electricity & Water</option>
-               <option value="LPG / Cooking Gas">LPG / Cooking Gas</option>
-               <option value="Mobile & Internet">Mobile & Internet</option>
-               <option value="Education & Fees">Education & Fees</option>
-               <option value="Medical & Pharmacy">Medical & Pharmacy</option>
-               <option value="Insurance (Life/Health)">Insurance (Life/Health)</option>
-               <option value="Local Transport">Local Transport</option>
-               <option value="Fuel & Vehicle Running">Fuel & Vehicle Running</option>
-               <option value="Eating Out & Restaurants">Eating Out & Restaurants</option>
-               <option value="Entertainment & Subscriptions">Entertainment & Subscriptions</option>
-               <option value="Clothing & Footwear">Clothing & Footwear</option>
-               <option value="Household Items & Appliances">Household Items & Appliances</option>
-               <option value="EMIs & Other Loans">EMIs & Other Loans</option>
-               <option value="Savings & Investments">Savings & Investments</option>
-               <option value="Miscellaneous / Others">Miscellaneous / Others</option>
-            </Form.Select>
-          </Form.Group>
+                <option value="">Select category</option>
+                <option value="Groceries & Vegetables">
+                  Groceries & Vegetables
+                </option>
+                <option value="Milk & Dairy">Milk & Dairy</option>
+                <option value="House Rent / Home EMI">
+                  House Rent / Home EMI
+                </option>
+                <option value="Maintenance & Society Charges">
+                  Maintenance & Society Charges
+                </option>
+                <option value="Electricity & Water">
+                  Electricity & Water
+                </option>
+                <option value="LPG / Cooking Gas">LPG / Cooking Gas</option>
+                <option value="Mobile & Internet">Mobile & Internet</option>
+                <option value="Education & Fees">Education & Fees</option>
+                <option value="Medical & Pharmacy">Medical & Pharmacy</option>
+                <option value="Insurance (Life/Health)">
+                  Insurance (Life/Health)
+                </option>
+                <option value="Local Transport">Local Transport</option>
+                <option value="Fuel & Vehicle Running">
+                  Fuel & Vehicle Running
+                </option>
+                <option value="Eating Out & Restaurants">
+                  Eating Out & Restaurants
+                </option>
+                <option value="Entertainment & Subscriptions">
+                  Entertainment & Subscriptions
+                </option>
+                <option value="Clothing & Footwear">
+                  Clothing & Footwear
+                </option>
+                <option value="Household Items & Appliances">
+                  Household Items & Appliances
+                </option>
+                <option value="EMIs & Other Loans">EMIs & Other Loans</option>
+                <option value="Savings & Investments">
+                  Savings & Investments
+                </option>
+                <option value="Miscellaneous / Others">
+                  Miscellaneous / Others
+                </option>
+              </Form.Select>
+            </Form.Group>
 
             <Form.Group className="mb-3" controlId="formDescription">
               <Form.Label>Description</Form.Label>
