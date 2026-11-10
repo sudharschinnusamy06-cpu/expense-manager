@@ -18,6 +18,7 @@ connectDB();
 
 const allowedOrigins = [
   "https://sudhars-expense-app-2025.netlify.app",
+  "https://sudhars-expense-app-new.netlify.app",
   "http://localhost:3000",
   // add more origins as needed
 ];
